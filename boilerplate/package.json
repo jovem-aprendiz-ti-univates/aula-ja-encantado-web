@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsc && node ./dist/app.js"
+    "dev": "rimraf ./dist && npx tsc && node ./dist/app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/prompt-sync": "^4.2.3",
+    "rimraf": "^5.0.5",
     "typescript": "^5.4.4"
   },
   "dependencies": {
