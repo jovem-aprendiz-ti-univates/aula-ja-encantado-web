@@ -1,0 +1,129 @@
+/* Estilos básicos e reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+/* Estilos para a navbar */
+.navbar-nav .nav-link {
+    color: #fff !important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-dark .navbar-brand {
+    color: #4CAF50;
+}
+
+.mt-5 {
+    margin-top: 5rem !important;
+}
+
+/* Estilos para a busca */
+.search-container {
+    text-align: right;
+}
+
+#search {
+    width: 100%;
+    max-width: 300px;
+    display: inline-block;
+}
+
+/* Estilos para a tabela */
+.table {
+    margin-top: 20px;
+}
+
+/* Estilos para a tela de boas-vindas */
+.welcome-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.welcome-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.welcome-container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.welcome-container .btn-primary {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 0;
+}
+
+.welcome-container .btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para tornar a tabela responsiva */
+@media (max-width: 767.98px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+    .table-responsive table {
+        display: block;
+        width: 100%;
+        overflow-y: hidden;
+    }
+    .table-responsive table thead {
+        display: none;
+    }
+    .table-responsive table tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .table-responsive table tbody tr {
+        display: block;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .table-responsive table tbody tr:last-child {
+        border-bottom: none;
+    }
+    .table-responsive table tbody td {
+        display: block;
+        text-align: right;
+    }
+    .table-responsive table tbody td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .table-responsive table tbody td:last-child {
+        border-bottom: none;
+    }
+}

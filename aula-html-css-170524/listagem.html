@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Pessoas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sistema de Gestão</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro.html">Adicionar Pessoa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-4">
+        <header>
+            <h1 class="text-center">Listagem de Pessoas</h1>
+        </header>
+        <main>
+            <div class="search-container mb-3">
+                <input type="text" id="search" class="form-control" placeholder="Buscar por nome, CPF...">
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Código ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Gênero</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Exemplo de dados -->
+                        <tr>
+                            <td class="d-none d-md-table-cell">001</td>
+                            <td>João da Silva</td>
+                            <td class="d-none d-md-table-cell">01/01/1980</td>
+                            <td class="d-none d-md-table-cell">123.456.789-00</td>
+                            <td class="d-none d-md-table-cell">Masculino</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Editar</button>
+                                <button class="btn btn-danger btn-sm">Excluir</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="d-none d-md-table-cell">002</td>
+                            <td>Maria Souza</td>
+                            <td class="d-none d-md-table-cell">15/05/1990</td>
+                            <td class="d-none d-md-table-cell">987.654.321-00</td>
+                            <td class="d-none d-md-table-cell">Feminino</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Editar</button>
+                                <button class="btn btn-danger btn-sm">Excluir</button>
+                            </td>
+                        </tr>
+                        <!-- Fim do exemplo de dados -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

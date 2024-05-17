@@ -2,4 +2,4 @@
 
 Projetos realizados pela turma do JA de Encantado.
 
-Aulas de programação.
+Aulas de programação e HTML e CSS.
