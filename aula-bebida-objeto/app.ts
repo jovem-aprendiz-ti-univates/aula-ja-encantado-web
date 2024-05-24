@@ -44,7 +44,12 @@ while (opcao != 9) {
         const id = Number(prompt("Digite um ID para excluir: "));
         const bebida: Bebida | undefined = copa.recuperarUm(id);
         if(bebida){
-            // copa.excluir(bebida);
+            const funcionou: boolean = copa.excluir(bebida);
+            if(funcionou){
+                console.log("Bebida apagada");
+            } else {
+                console.log("Ocorreu um erro ao apagar");
+            }
         } else {
             console.log("Bebida não encontrada");
         }

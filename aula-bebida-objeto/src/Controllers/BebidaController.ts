@@ -30,4 +30,16 @@ export default class BebidaController {
 
         // return this._copa.find(element => element.id === id);
     }
+
+    public excluir(b: Bebida): boolean {
+        for (let index = 0; index < this._copa.length; index++) {
+            const element = this._copa[index];
+            if(element.id === b.id){
+                this._copa.splice(index, 1);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
