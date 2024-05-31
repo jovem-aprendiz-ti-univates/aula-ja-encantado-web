@@ -42,4 +42,12 @@ export default class BebidaController {
 
         return false;
     }
+
+    public editar(b: Bebida, novaB: Bebida): void {
+        b.cor = novaB.cor;
+        b.nome = novaB.nome;
+        b.quantidade = novaB.quantidade;
+        b.temperatura = novaB.temperatura;
+        b.teorAlcool = novaB.teorAlcool;
+    }
 }
