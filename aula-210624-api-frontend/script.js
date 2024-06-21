@@ -11,12 +11,12 @@ const listaDeItens = document.getElementById('lista');
 //     const listaItem = document.createElement('li');
 //     listaItem.textContent = `${dados[index].descricao} - ${dados[index].quantidade} - R$ ${dados[index].valor}`;
 //     listaDeItens.appendChild(listaItem);   
-// }
+// };
 
 dados.forEach(item => {
     const listaItem = document.createElement('li');
     listaItem.textContent = `${item.descricao} - ${item.quantidade} - R$ ${item.valor}`
     listaDeItens.appendChild(listaItem);  
-})
+});
 
 
