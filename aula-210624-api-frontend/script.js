@@ -1,22 +1,35 @@
-const dados = [
-    {descricao: "Batata", quantidade: 10, valor: 5},
-    {descricao: "Feijão", quantidade: 4, valor: 14},
-    {descricao: "Cebola", quantidade: 1, valor: 1},
-    {descricao: "Bola", quantidade: 1, valor: 51},
-];
+// const dados = [
+//     {
+//         "userId": 1,
+//         "id": 1,
+//         "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+//         "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+//     },
+//     {
+//         "userId": 1,
+//         "id": 2,
+//         "title": "qui est esse",
+//         "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+//     },
+//     {
+//         "userId": 1,
+//         "id": 3,
+//         "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+//         "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+//     },
+// ];
 
-const listaDeItens = document.getElementById('lista');
+async function main() {
+    const response = await fetch('https://brasilapi.com.br/api/ncm/v1');
+    const dados = await response.json();
 
-// for (let index = 0; index < dados.length; index++) {
-//     const listaItem = document.createElement('li');
-//     listaItem.textContent = `${dados[index].descricao} - ${dados[index].quantidade} - R$ ${dados[index].valor}`;
-//     listaDeItens.appendChild(listaItem);   
-// };
+    const listaDeItens = document.getElementById('lista');
 
-dados.forEach(item => {
-    const listaItem = document.createElement('li');
-    listaItem.textContent = `${item.descricao} - ${item.quantidade} - R$ ${item.valor}`
-    listaDeItens.appendChild(listaItem);  
-});
+    dados.forEach(item => {
+        const listaItem = document.createElement('li');
+        listaItem.textContent = `${item.codigo} - ${item.descricao} - ${item.numero_ato}`
+        listaDeItens.appendChild(listaItem);
+    });
+}
 
-
+main();
