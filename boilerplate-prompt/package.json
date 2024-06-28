@@ -9,11 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/prompt-sync": "^4.2.3",
     "rimraf": "^5.0.5",
     "typescript": "^5.4.4"
-  },
-  "dependencies": {
-    "prompt-sync": "^4.2.0"
   }
 }
