@@ -19,17 +19,22 @@
 //     },
 // ];
 
-async function main() {
-    const response = await fetch('https://brasilapi.com.br/api/ncm/v1');
+
+async function buscaCep(cep) {
+    const response = await fetch(`https://brasilapi.com.br/api/cep/v2/${cep}`);
     const dados = await response.json();
 
     const listaDeItens = document.getElementById('lista');
 
-    dados.forEach(item => {
-        const listaItem = document.createElement('li');
-        listaItem.textContent = `${item.codigo} - ${item.descricao} - ${item.numero_ato}`
-        listaDeItens.appendChild(listaItem);
-    });
+    const listaItem = document.createElement('li');
+    listaItem.textContent = `${dados.cep} - ${dados.state} - ${dados.city}`
+    listaDeItens.appendChild(listaItem);
 }
 
-main();
+const botao = document.getElementById('buscar');
+const input = document.getElementById('campo');
+let cep = "";
+botao.addEventListener('click', function () {
+    cep = input.value;
+    buscaCep(cep);
+});
