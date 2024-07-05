@@ -26,9 +26,9 @@ app.get('/bebidas/:id', (req: Request, res: Response): Response => {
 app.delete('/bebidas/:id', (req: Request, res: Response): Response => {
   const id = Number(req.params.id);
   const bebida: Bebida | undefined = copa.recuperarUm(id);
-  if(bebida){
+  if (bebida) {
     copa.excluir(bebida);
-    return res.status(200).json({ message: `Bebida de ID ${id} removida`});
+    return res.status(200).json({ message: `Bebida de ID ${id} removida` });
   } else {
     return res.status(404).json({ message: 'Bebida não encontrada' });
   }
@@ -43,6 +43,24 @@ app.post('/bebidas', (req: Request, res: Response): Response => {
   bebida.temperatura = req.body.temperatura;
   copa.salvar(bebida);
   return res.status(200).json(bebida);
+});
+
+app.put('/bebidas/:id', (req: Request, res: Response): Response => {
+  const id = Number(req.params.id);
+  const bebida: Bebida | undefined = copa.recuperarUm(id);
+  if (bebida) {
+    const novaBebida: Bebida = new Bebida();
+    novaBebida.id = bebida.id;
+    novaBebida.cor = req.body.cor;
+    novaBebida.nome = req.body.nome;
+    novaBebida.quantidade = req.body.quantidade;
+    novaBebida.teorAlcool = req.body.teorAlcool;
+    novaBebida.temperatura = req.body.temperatura;
+    copa.editar(bebida, novaBebida);
+    return res.status(200).json(novaBebida);
+  } else {
+    return res.status(404).json({ message: 'Bebida não encontrada' });
+  }
 });
 
 app.listen(port, () => {
