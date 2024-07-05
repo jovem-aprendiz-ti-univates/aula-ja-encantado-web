@@ -16,7 +16,7 @@ copa.salvar(b1);
 
 let b2: Bebida = new Bebida();
 b2.cor = "Preta";
-b2.nome = "Coca cola";
+b2.nome = "Pepsi";
 b2.quantidade = 1;
 b2.temperatura = "Gelada";
 b2.teorAlcool = 0;
