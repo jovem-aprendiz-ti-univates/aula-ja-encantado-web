@@ -19,7 +19,18 @@ app.get('/bebidas/:id', (req: Request, res: Response): Response => {
   if (bebida) {
     return res.status(200).json(bebida);
   } else {
-    return res.status(404).json({ message: 'Bebida não encontrada' })
+    return res.status(404).json({ message: 'Bebida não encontrada' });
+  }
+});
+
+app.delete('/bebidas/:id', (req: Request, res: Response): Response => {
+  const id = Number(req.params.id);
+  const bebida: Bebida | undefined = copa.recuperarUm(id);
+  if(bebida){
+    copa.excluir(bebida);
+    return res.status(200).json({ message: `Bebida de ID ${id} removida`});
+  } else {
+    return res.status(404).json({ message: 'Bebida não encontrada' });
   }
 });
 
