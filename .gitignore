@@ -1,2 +1,4 @@
 dist/
 node_modules/
+codigo-alunos/*
+!codigo-alunos/.gitkeep
