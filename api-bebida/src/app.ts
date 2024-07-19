@@ -1,7 +1,6 @@
-import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
-import BebidaController from './src/Controllers/BebidaController';
-import Bebida from './src/Models/Bebida';
+import BebidaController from './Controllers/BebidaController';
+import Bebida from './Models/Bebida';
 
 const app: Express = express();
 const port: number = 3000;
