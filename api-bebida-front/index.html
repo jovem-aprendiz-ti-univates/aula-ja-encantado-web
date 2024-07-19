@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tela Inicial dos Cadastros</title>
+    <style>
+        .quadradoTela {
+            width: 500px;
+            height: 500px;
+            background-color: #6f6fcf;
+            align-items: top;
+            display: flex;
+            border-radius: 80px;
+            justify-content: center;
+            font-family: 'Helvetica.', normal;
+            margin: auto;
+            font-size: 20px;
+        }
+        .button {
+            margin-top: 10px;
+            width:150px;
+            height: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Minha lista</h1>
-    <a href="cadastro.html">Cadastrar uma bebida</a>
-    <ul id="lista"></ul>
-    <table id="tabela">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Cor</th>
-            <th>Quantidade</th>
-            <th>Teor Álcool</th>
-            <th>Temperatura</th>
-          </tr>
-        </thead>
-        <tbody id="corpo-tabela">
-        </tbody>
-      </table>
-    <script src="script.js"></script>
+    <div class="quadradoTela">
+        <p>Olá, seja bem vindo a Tela de Cadastros</p>
+        <a href="pessoas/cadastro.html" class="button">CADASTRAR</a>
+    </div>
 </body>
+
 </html>
