@@ -1,11 +1,11 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import BebidaController from './Controllers/BebidaController';
+import BebidaDAO from './Models/DAO/BebidaDAO';
 import Bebida from './Models/Bebida';
 
 const app: Express = express();
 const port: number = 3000;
-let copa: BebidaController = new BebidaController();
+let copa: BebidaDAO = new BebidaDAO();
 
 app.use(cors());
 app.use(express.json());
