@@ -5,20 +5,30 @@ import Bebida from '../Models/Bebida';
 export default class BebidaController {
     private _copa: BebidaDAO = new BebidaDAO();
 
-    salvar = (req: Request, res: Response): Response => {
-        const bebida: Bebida = new Bebida();
-        bebida.cor = req.body.cor;
-        bebida.nome = req.body.nome;
-        bebida.quantidade = req.body.quantidade;
-        bebida.teorAlcool = req.body.teorAlcool;
-        bebida.temperatura = req.body.temperatura;
-        this._copa.salvar(bebida);
-        return res.status(200).json(bebida);
+    salvar = async (req: Request, res: Response): Promise<Response> => {
+        try {
+            const bebida: Bebida = new Bebida();
+            bebida.cor = req.body.cor;
+            bebida.nome = req.body.nome;
+            bebida.quantidade = req.body.quantidade;
+            bebida.teorAlcool = req.body.teorAlcool;
+            bebida.temperatura = req.body.temperatura;
+            const resultado = await this._copa.salvar(bebida);
+            return res.status(200).json(resultado);
+        } catch (err) {
+            console.error('Erro ao tentar salvar bebida:', err);
+            return res.status(500).send({ error: 'Falha ao tentar salvar bebida.' });
+        }
     };
 
-    recuperarTodos = (req: Request, res: Response): Response => {
-        const bebidas = this._copa.listarTodos();
-        return res.status(200).json(bebidas);
+    recuperarTodos = async (req: Request, res: Response): Promise<Response> => {
+        try {
+            const bebidas = await this._copa.listarTodos();
+            return res.status(200).json(bebidas);
+        } catch (err) {
+            console.error('Erro ao tentar consultar bebidas:', err);
+            return res.status(500).send({ error: 'Falha ao tentar consultar bebidas.' });
+        }
     };
 
     recuperarUm = (req: Request, res: Response): Response => {

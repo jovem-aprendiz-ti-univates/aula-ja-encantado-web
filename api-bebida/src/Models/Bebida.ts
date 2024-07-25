@@ -81,4 +81,15 @@ export default class Bebida {
     public set nome(value: string) {
         this._nome = value;
     }
+
+    public toJSON() {
+        return {
+            id: this.id,
+            cor: this.cor,
+            temperatura: this.temperatura,
+            quantidade: this.quantidade,
+            teorAlcool: this.teorAlcool,
+            nome: this.nome,
+        };
+    }
 }
