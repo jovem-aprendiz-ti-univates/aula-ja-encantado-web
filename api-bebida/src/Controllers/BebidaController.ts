@@ -31,40 +31,56 @@ export default class BebidaController {
         }
     };
 
-    recuperarUm = (req: Request, res: Response): Response => {
-        const id = Number(req.params.id);
-        const bebida: Bebida | undefined = this._copa.recuperarUm(id);
-        if (bebida) {
-            return res.status(200).json(bebida);
-        } else {
-            return res.status(404).json({ message: 'Bebida não encontrada' });
+    recuperarUm = async (req: Request, res: Response): Promise<Response> => {
+        try {
+            const id = Number(req.params.id);
+            const bebida: Bebida | undefined = await this._copa.recuperarUm(id);
+            if (bebida) {
+                return res.status(200).json(bebida);
+            } else {
+                return res.status(404).json({ message: 'Bebida não encontrada' });
+            }
+        } catch (err) {
+            console.error(`Erro ao tentar consultar bebida ${req.params.id}:`, err);
+            return res.status(500).send({ error: `Falha ao tentar consultar bebida.` });
         }
     };
 
-    apagar = (req: Request, res: Response): Response => {
-        const id = Number(req.params.id);
-        const bebida: Bebida | undefined = this._copa.recuperarUm(id);
-        if (bebida) {
-            this._copa.excluir(bebida);
-            return res.status(200).json({ message: `Bebida de ID ${id} removida` });
-        } else {
-            return res.status(404).json({ message: 'Bebida não encontrada' });
+    apagar = async (req: Request, res: Response): Promise<Response> => {
+        try {
+            const id = Number(req.params.id);
+            const bebida: Bebida | undefined = await this._copa.recuperarUm(id);
+            if (bebida) {
+                const resultado = await this._copa.excluir(bebida);
+                if (resultado) {
+                    return res.status(200).json({ message: `Bebida de ID ${id} removida` });
+                } else {
+                    return res.status(500).json({ erro: `Bebida de ID ${id} não removida, ocorreu um erro` });
+                }
+            } else {
+                return res.status(404).json({ message: 'Bebida não encontrada' });
+            }
+        } catch (err) {
+            console.error(`Erro ao tentar apagar bebida ${req.params.id}:`, err);
+            return res.status(500).send({ error: `Falha ao tentar apagar bebida.` });
         }
     };
 
-    editar = (req: Request, res: Response): Response => {
+    editar = async (req: Request, res: Response): Promise<Response> => {
         const id = Number(req.params.id);
-        const bebida: Bebida | undefined = this._copa.recuperarUm(id);
+        const bebida: Bebida | undefined = await this._copa.recuperarUm(id);
         if (bebida) {
-            const novaBebida: Bebida = new Bebida();
-            novaBebida.id = bebida.id;
-            novaBebida.cor = req.body.cor;
-            novaBebida.nome = req.body.nome;
-            novaBebida.quantidade = req.body.quantidade;
-            novaBebida.teorAlcool = req.body.teorAlcool;
-            novaBebida.temperatura = req.body.temperatura;
-            this._copa.editar(bebida, novaBebida);
-            return res.status(200).json(novaBebida);
+            bebida.cor = req.body.cor;
+            bebida.nome = req.body.nome;
+            bebida.quantidade = req.body.quantidade;
+            bebida.teorAlcool = req.body.teorAlcool;
+            bebida.temperatura = req.body.temperatura;
+            const resultado = await this._copa.editar(bebida);
+            if (resultado) {
+                return res.status(200).json(bebida);
+            } else {
+                return res.status(500).json({ erro: `Bebida de ID ${id} não editada, ocorreu um erro` });
+            }
         } else {
             return res.status(404).json({ message: 'Bebida não encontrada' });
         }
