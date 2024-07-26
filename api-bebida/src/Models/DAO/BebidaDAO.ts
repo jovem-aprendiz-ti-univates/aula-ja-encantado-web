@@ -7,7 +7,7 @@ export default class BebidaDAO {
 
     public async salvar(b: Bebida): Promise<Bebida> {
         try {
-            const query = `INSERT INTO bebidas (cor, nome, quantidade, temperatura, teor_alcool) VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+            const query: string = `INSERT INTO bebidas (cor, nome, quantidade, temperatura, teor_alcool) VALUES ($1, $2, $3, $4, $5) RETURNING id`;
             const values = [b.cor, b.nome, b.quantidade, b.temperatura, b.teorAlcool];
             const result = await pool.query(query, values);
 

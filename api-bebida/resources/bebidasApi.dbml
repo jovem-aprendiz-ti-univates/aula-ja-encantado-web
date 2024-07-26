@@ -1,0 +1,23 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Project project_name {
+    database_type: 'PostgreSQL'
+}
+
+Table bebidas {
+  id serial [primary key]
+  cor varchar(255) [not null]
+  temperatura varchar(255) [not null]
+  quantidade decimal(10,2) [not null]
+  teor_alcool decimal(10,2) [not null]
+  nome varchar(255) [not null]
+}
+
+Table pessoas {
+  id serial [pk]
+  nome varchar(255) [not null]
+  dataNascimento varchar(255) [not null]
+  altura decimal(10,2) [not null]
+  peso decimal(10,2) [not null]
+}
