@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial dos Cadastros</title>
+    <title>Tela de Cadastros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .quadradoTela {
-            width: 500px;
-            height: 500px;
-            background-color: #6f6fcf;
-            align-items: top;
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ececec, #d4d4d4);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
             display: flex;
-            border-radius: 80px;
             justify-content: center;
-            font-family: 'Helvetica.', normal;
-            margin: auto;
-            font-size: 20px;
+            align-items: center;
+            height: 100vh;
         }
-        .button {
-            margin-top: 10px;
-            width:150px;
-            height: 50px;
+
+        .container {
+            background-color: #6f6fcf;
+            width: 400px;
+            height: 300px;
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container .top-bar {
+            background: linear-gradient(135deg, #6f6fcf, #503c52);
+            height: 40px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            margin-top: -20px;
+            margin-left: -20px;
+            margin-right: -20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container h1 {
+            color: #000;
+            margin: 20px 0;
+        }
+
+        .container a {
+            text-decoration: none;
+        }
+
+        .container button {
+            background-color: #503c52;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: white;
-            border: 2px solid rgb(255, 255, 255);
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            text-align: center;
+            transition: background-color 0.3s;
+            margin: 10px;
         }
-        .button:hover {
-            background-color: blue;
-            color: white;
+
+        .container button:hover {
+            background-color: #17a2b8;
         }
     </style>
 </head>
 
 <body>
-    <div class="quadradoTela">
-        <p>Olá, seja bem vindo a Tela de Cadastros</p>
-        <a href="pessoas/cadastro.html" class="button">CADASTRAR</a>
+    <div class="container">
+        <div class="top-bar">Tela inicial</div>
+        <h1>Olá, boas vindas ao Sistema XYZ</h1>
+        <a href="pessoas/index.html">
+            <button>PESSOAS</button>
+        </a>
+
+        <a href="bebidas/index.html">
+            <button>BEBIDAS</button>
+        </a>
     </div>
 </body>
 
