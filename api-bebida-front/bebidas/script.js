@@ -7,27 +7,27 @@ async function listarBebidas() {
         const linha = document.createElement('tr');
         
         const tdId = document.createElement('td');
-        tdId.textContent = item._id;
+        tdId.textContent = item.id;
         linha.appendChild(tdId);
 
         const tdNome = document.createElement('td');
-        tdNome.textContent = item._nome;
+        tdNome.textContent = item.nome;
         linha.appendChild(tdNome);
         
         const tdCor = document.createElement('td');
-        tdCor.textContent = item._cor;
+        tdCor.textContent = item.cor;
         linha.appendChild(tdCor);
         
         const tdQuantidade = document.createElement('td');
-        tdQuantidade.textContent = item._quantidade;
+        tdQuantidade.textContent = item.quantidade;
         linha.appendChild(tdQuantidade);
         
         const tdTeorAlcool = document.createElement('td');
-        tdTeorAlcool.textContent = item._teorAlcool;
+        tdTeorAlcool.textContent = item.teorAlcool;
         linha.appendChild(tdTeorAlcool);
         
         const tdTemperatura = document.createElement('td');
-        tdTemperatura.textContent = item._temperatura;
+        tdTemperatura.textContent = item.temperatura;
         linha.appendChild(tdTemperatura);
 
         corpoTabela.appendChild(linha);
