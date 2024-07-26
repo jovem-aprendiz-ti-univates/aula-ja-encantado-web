@@ -8,7 +8,7 @@ const pool: Pool = new Pool({
   port: 5432,
 });
 
-// Função de log para todas as consultas
+// Exibir consultas no console. Não é obrigatório.
 const logQuery = (query: string, params?: any[]) => {
   console.log('Consulta:', query);
   if (params && params.length > 0) {
@@ -16,7 +16,6 @@ const logQuery = (query: string, params?: any[]) => {
   }
 };
 
-// Envolver o método query do pool para adicionar o log
 const originalQuery = pool.query.bind(pool);
 pool.query = (query: string | QueryConfig<any[]>, ...params: any[]): Promise<QueryResult<any>> => {
   if (typeof query === 'string') {
