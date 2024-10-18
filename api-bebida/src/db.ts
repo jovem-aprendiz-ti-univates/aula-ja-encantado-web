@@ -3,7 +3,7 @@ import { Pool, QueryConfig, QueryResult } from 'pg';
 const pool: Pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'apibebidas',
+  database: 'bebidas',
   password: 'postgres', // nunca versionar
   port: 5432,
 });

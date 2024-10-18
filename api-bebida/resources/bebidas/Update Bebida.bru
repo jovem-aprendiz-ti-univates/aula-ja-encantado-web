@@ -1,0 +1,21 @@
+meta {
+  name: Update Bebida
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:3000/bebidas/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cor": "Preta",
+    "nome": "Cerveja",
+    "quantidade": 1,
+    "teorAlcool": 10,
+    "temperatura": "gelada"
+  }
+}

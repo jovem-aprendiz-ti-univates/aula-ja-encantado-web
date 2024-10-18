@@ -1,0 +1,21 @@
+meta {
+  name: Create Bebida
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/bebidas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cor": "Amarela",
+    "nome": "Cerveja",
+    "quantidade": 1,
+    "teorAlcool": 10,
+    "temperatura": "gelada"
+  }
+}
